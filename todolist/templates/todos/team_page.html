@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static "css/teamstyle.css" %}">
+    <title>Document</title>
+</head>
+<body>
+    <header class = "header">
+        <div class = "header_container">
+            <h1>Welcome to team page!</h1>
+        </div>
+    </header>
+    <main class = "hero">
+        <section class = "hero_section">
+            <div class = "hero_container">
+                <form class = "hero_form" method = 'POST'>
+                    {% csrf_token %}
+                    {{form.name}}
+                    {{form.surname}}
+                    {{form.email}}
+                    <button class = "send_btn" type = "submit">Send</button>
+                </form>
+            </div>
+        </section>
+        <section>
+            <div>
+                <ul>
+                    <a href="">Изменить</a>
+                    <a href="">Удалить</a>
+                </ul>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

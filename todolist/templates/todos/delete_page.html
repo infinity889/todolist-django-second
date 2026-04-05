@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Удалить задачу</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/delete.css' %}">
+</head>
+<body>
+    <header class="header">
+        <div class="header_container">
+            <div class="container_content">
+                <h1 class="mytasks">🗑️ Удаление задачи</h1>
+            </div>
+        </div>
+    </header>
+
+    <main class="delete-container">
+        <div class="delete-card">
+            <div class="delete-icon">⚠️</div>
+            <h2 class="delete-title">Вы уверены?</h2>
+            <p class="delete-text">
+                Вы хотите удалить задачу:<br>
+                <strong style="color: var(--text-primary); font-size: 1.1rem;">"{{ task.title }}"</strong>
+            </p>
+            <form method="post" class="delete-actions">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">
+                    🗑️ Да, удалить
+                </button>
+                <a href="{% url 'home' %}" class="btn btn-secondary">
+                    ❌ Отмена
+                </a>
+            </form>
+        </div>
+    </main>
+</body>
+</html>

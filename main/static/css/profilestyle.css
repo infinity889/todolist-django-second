@@ -1,0 +1,85 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: rgb(53, 7, 96);
+}
+
+.header {
+    margin-bottom: 200px;
+    background-color: blueviolet;
+    padding-block: 20px;
+}
+
+.header_container {
+    display: flex;
+    justify-content: center;
+}
+
+.hero_content {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.hero_form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.username_form,
+.password_form,
+.email_form {
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    width: 300px; 
+    background: #fff;
+    color: #333;
+}
+
+.username_form:focus,
+.password_form:focus,
+.email_form:focus {
+    outline: none;
+    border-color: #8b5cf6;
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2);
+}
+
+.username_form::placeholder,
+.password_form::placeholder,
+.email_form::placeholder {
+    color: #999;
+}
+
+.hero_form button[type="submit"] {
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    background: #8b5cf6;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.hero_form button:hover {
+    background: #7c3aed;
+    transform: translateY(-2px);
+}
+
+.hero_form a {
+    color: #8b5cf6;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.hero_form a:hover {
+    text-decoration: underline;
+}
+

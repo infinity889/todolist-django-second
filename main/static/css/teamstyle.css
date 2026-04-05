@@ -1,0 +1,76 @@
+:root {
+    --white: #5454D4;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #360a64;
+}
+
+
+.header {
+    padding-block: 40px;
+    background-color: blueviolet;
+    margin-bottom: 200px;
+}
+
+.header_container {
+    display: flex;
+    justify-content: center;
+
+}
+
+.hero_container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+
+}
+
+.hero_form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    background-color: #221426;
+    padding: 40px;
+    border-radius: 20px;
+    width: 300px;
+    height: 300px;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.hero_form:hover {
+    transform: translateY(-10px);
+}
+
+
+
+.team_name,
+.team_surname,
+.team_email {
+    padding: 10px 15px;
+    font-size: 15px;
+    border-radius: 12px;
+}
+
+.send_btn {
+    padding: 10px 65px;
+    border-radius: 10px;
+    margin-top: 25px;
+    transition: transform 0.2s ease;
+    transition: color 0.2 ease;
+
+
+}
+
+.send_btn:hover {
+    transform: translateY(-10px);
+    background-color: #360a64;
+}

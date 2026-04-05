@@ -1,11 +1,81 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Мои задачи</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
 </head>
 <body>
-    <header></header>
+    <header class="header">
+        <div class="header_container">
+            <div class="container_content">
+                <h1 class="mytasks">📝 Мои задачи</h1>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-container">
+        <div class="form-container">
+            <form method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    {{ form.title.label_tag }}
+                    {{ form.title }}
+                    {% if form.title.errors %}
+                        <ul class="errorlist">
+                            {% for error in form.title.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    <label>
+                        {{ form.completed }}
+                        {{ form.completed.label }}
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-primary">
+                    ➕ Добавить задачу
+                </button>
+            </form>
+        </div>
+
+    
+        {% if tasks %}
+            <ul class="task-list">
+                {% for task in tasks %}
+                    <li class="task-item {% if task.completed %}completed{% endif %}">
+                        <form method="post" action="{% url 'update' task.id %}" style="display: contents;">
+                            {% csrf_token %}
+                            <input type="checkbox" class="task-checkbox" name="completed" 
+                                   {% if task.completed %}checked{% endif %} 
+                                   onchange="this.form.submit()">
+                        </form>
+                        <div class="task-content">
+                            <div class="task-title">{{ task.title }}</div>
+                            <div class="task-date">{{ task.created|date:"d.m.Y H:i" }}</div>
+                        </div>
+                        <div class="task-actions">
+                            <a href="{% url 'update' task.id %}" class="btn btn-secondary btn-sm">
+                                ✏️
+                            </a>
+                            <a href="{% url 'delete' task.id %}" class="btn btn-danger btn-sm">
+                                🗑️
+                            </a>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <div class="empty-state">
+                <div class="empty-state-icon">📋</div>
+                <div class="empty-state-text">Задач пока нет. Добавьте первую задачу!</div>
+            </div>
+        {% endif %}
+    </main>
 </body>
 </html>

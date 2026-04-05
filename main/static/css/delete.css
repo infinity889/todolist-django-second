@@ -1,0 +1,72 @@
+/* Стили для страницы удаления задачи */
+
+.delete-container {
+    max-width: 500px;
+    margin: 4rem auto;
+    padding: 0 1rem;
+}
+
+.delete-card {
+    background: var(--surface);
+    border-radius: 16px;
+    padding: 2.5rem;
+    text-align: center;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+}
+
+.delete-icon {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+}
+
+.delete-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+.delete-text {
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+}
+
+.delete-text strong {
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    display: block;
+    margin-top: 0.5rem;
+    word-break: break-word;
+}
+
+.delete-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.delete-actions .btn {
+    min-width: 140px;
+}
+
+/* Анимация предупреждения */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+.delete-icon {
+    animation: shake 2s ease-in-out infinite;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .delete-actions {
+        flex-direction: column;
+    }
+
+    .delete-actions .btn {
+        width: 100%;
+    }
+}
