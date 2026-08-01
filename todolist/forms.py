@@ -1,5 +1,5 @@
 from django import forms
-from .models import Todo, Info, Team
+from .models import Todo, Info, Team, TestForm
 
 
 class TodoForm(forms.ModelForm):
@@ -31,4 +31,11 @@ class TeamForm(forms.ModelForm):
             'email': forms.TextInput(attrs={'class': 'team_email', 'placeholder': 'Введите емейл'})
         }
 
-        
+
+
+class Test_Form(forms.ModelForm):
+    class Meta:
+        model = TestForm
+        fields = "__all__"
+
+            
